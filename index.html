@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raise Fwd | Nonprofit Strategy &amp; Leadership</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #2C7A3E;
+      --green-dark: #1d5e2c;
+      --green-light: #e8f5ec;
+      --green-sage: #52A96A;
+      --black: #1A1A1A;
+      --gray: #6B7280;
+      --gray-light: #F5F5F5;
+      --white: #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Tahoma, 'Segoe UI', system-ui, sans-serif;
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid #E5E7EB;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100px;
+    }
+
+    .nav-logo {
+      display: block;
+      text-decoration: none;
+      overflow: hidden;
+      width: 200px;
+      height: 100px;
+      flex-shrink: 0;
+    }
+
+    .nav-logo-img {
+      height: 320px;
+      width: auto;
+      margin-top: -87px;
+      margin-left: -64px;
+    }
+
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--gray);
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--green-dark); }
+
+    .nav-cta {
+      background: var(--green);
+      color: var(--white) !important;
+      padding: 0.5rem 1.25rem;
+      border-radius: 6px;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--green-dark) !important; color: var(--white) !important; }
+
+    /* hamburger — mobile */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--black);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      margin-top: 100px;
+      min-height: calc(100vh - 72px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 4rem 6rem;
+      gap: 4rem;
+      background: linear-gradient(135deg, var(--white) 60%, var(--green-light) 100%);
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      font-weight: 700;
+      font-family: 'Poppins', Tahoma, sans-serif;
+      line-height: 1.2;
+      color: var(--black);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-text h1 span { color: var(--green-dark); }
+
+    .hero-text p {
+      font-size: 1.125rem;
+      color: var(--gray);
+      max-width: 480px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--green);
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover { background: var(--green-dark); transform: translateY(-1px); }
+
+    .btn-secondary {
+      display: inline-block;
+      border: 2px solid var(--green);
+      color: var(--green-dark);
+      text-decoration: none;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-secondary:hover { background: var(--green-light); }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      max-width: 460px;
+      filter: drop-shadow(0 16px 32px rgba(44,122,62,0.15));
+    }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 5rem 6rem; }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green-dark);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 700;
+      font-family: 'Poppins', Tahoma, sans-serif;
+      color: var(--black);
+      margin-bottom: 1rem;
+      line-height: 1.25;
+    }
+
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--gray);
+      max-width: 600px;
+      margin-bottom: 3rem;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--gray-light);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .about-badge-wrap {
+      position: relative;
+      display: inline-block;
+    }
+
+    .about-icon-card {
+      background: var(--white);
+      border: 2px solid var(--green-light);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 400px;
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 40px rgba(44,122,62,0.12);
+    }
+
+    .about-icon-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .about-text h2 { margin-bottom: 1.25rem; }
+
+    .about-text p {
+      color: var(--gray);
+      margin-bottom: 1.25rem;
+      font-size: 1.05rem;
+    }
+
+    .value-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .value-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.975rem;
+      color: var(--black);
+      font-weight: 500;
+    }
+
+    .value-list li::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+      background: var(--green);
+      border-radius: 50%;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='white'%3E%3Cpath fill-rule='evenodd' d='M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z' clip-rule='evenodd'/%3E%3C/svg%3E");
+      background-size: 12px;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-top: 2px;
+    }
+
+    /* ── SERVICES ── */
+    #services { background: var(--white); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid #E5E7EB;
+      border-radius: 12px;
+      padding: 2rem;
+      transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--green);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-card:hover {
+      box-shadow: 0 8px 30px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+      border-color: var(--green);
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--green-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .service-icon svg {
+      width: 26px;
+      height: 26px;
+      stroke: var(--green-dark);
+    }
+
+    .service-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      color: var(--black);
+    }
+
+    .service-card p {
+      font-size: 0.925rem;
+      color: var(--gray);
+      line-height: 1.65;
+    }
+
+    .service-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--green-dark);
+      background: var(--green-light);
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      margin-top: 1rem;
+    }
+
+    /* ── LEADERSHIP ── */
+    #leadership { background: var(--green-dark); color: var(--white); }
+
+    #leadership .section-label { color: var(--green-light); }
+    #leadership .section-title { color: var(--white); }
+    #leadership .section-sub { color: rgba(255,255,255,0.75); }
+
+    .leadership-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .leadership-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 12px;
+      padding: 2rem;
+      backdrop-filter: blur(4px);
+      transition: background 0.2s;
+    }
+
+    .leadership-card:hover { background: rgba(255,255,255,0.18); }
+
+    .leadership-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      color: var(--white);
+    }
+
+    .leadership-type {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--green-light);
+      margin-bottom: 0.85rem;
+    }
+
+    .leadership-card p {
+      font-size: 0.925rem;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.65;
+    }
+
+    .role-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 1rem;
+    }
+
+    .role-pill {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--white);
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+    }
+
+    /* ── RECOMMENDATIONS ── */
+    #recommendations {
+      background: var(--gray-light);
+      padding: 5rem 6rem;
+    }
+
+    #recommendations .section-title { margin-bottom: 0.5rem; }
+
+    .recommendations-intro {
+      font-size: 1.05rem;
+      color: var(--gray);
+      margin-bottom: 3rem;
+      max-width: 600px;
+    }
+
+    .rec-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .rec-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      border-top: 4px solid var(--green);
+    }
+
+    .rec-card.placeholder {
+      border-top-color: #D1D5DB;
+      opacity: 0.5;
+    }
+
+    .rec-quote {
+      font-size: 0.975rem;
+      color: var(--black);
+      line-height: 1.75;
+      font-style: italic;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .rec-quote.expanded {
+      display: block;
+      overflow: visible;
+    }
+
+    .rec-quote::before { content: '\201C'; }
+    .rec-quote::after  { content: '\201D'; }
+
+    .rec-read-more {
+      background: none;
+      border: none;
+      color: var(--green-dark);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0;
+      text-decoration: underline;
+      align-self: flex-start;
+    }
+
+    .rec-read-more:hover { color: var(--green); }
+
+    .rec-author {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--green-dark);
+    }
+
+    .rec-placeholder-text {
+      font-size: 0.9rem;
+      color: #9CA3AF;
+      font-style: italic;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 80px;
+    }
+
+    /* ── PHOTO BANNER ── */
+    .photo-banner {
+      width: 100%;
+      height: 280px;
+      overflow: hidden;
+    }
+
+    .photo-banner-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    /* ── CTA BANNER ── */
+    #cta {
+      background: var(--green-light);
+      padding: 4rem 6rem;
+      text-align: center;
+    }
+
+    #cta h2 {
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 1rem;
+    }
+
+    #cta p {
+      font-size: 1.1rem;
+      color: var(--gray);
+      max-width: 520px;
+      margin: 0 auto 2rem;
+    }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--white); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-info h2 { margin-bottom: 1rem; }
+
+    .contact-info p {
+      color: var(--gray);
+      font-size: 1.025rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      color: var(--black);
+    }
+
+    .contact-detail-icon {
+      width: 38px;
+      height: 38px;
+      background: var(--green-light);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-detail-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--green-dark);
+    }
+
+    /* Form */
+    .contact-form {
+      background: var(--gray-light);
+      border-radius: 14px;
+      padding: 2.5rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--black);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 0.75rem 1rem;
+      border: 1px solid #D1D5DB;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: var(--black);
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(34,197,94,0.12);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 110px; }
+
+    .form-submit {
+      width: 100%;
+      background: var(--green);
+      color: var(--white);
+      border: none;
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-family: inherit;
+    }
+
+    .form-submit:hover { background: var(--green-dark); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      color: rgba(255,255,255,0.65);
+      padding: 2.5rem 6rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer img { height: 36px; filter: brightness(0) invert(1) opacity(0.7); }
+
+    footer p { font-size: 0.875rem; }
+
+    footer a {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 0.875rem;
+    }
+
+    footer a:hover { color: var(--white); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      section, .hero, #cta, footer { padding-left: 3rem; padding-right: 3rem; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      section, .hero, #cta, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+      }
+
+      .hero-actions { justify-content: center; }
+      .hero-visual { order: -1; }
+      .hero-visual img { max-width: 200px; }
+
+      .about-grid,
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+
+      .about-img { display: none; }
+
+      .services-grid { grid-template-columns: 1fr; }
+      .leadership-grid { grid-template-columns: 1fr; }
+
+      .form-row { grid-template-columns: 1fr; }
+
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#">
+      <img src="Raise Fwd Logo.png" alt="Raise Fwd" class="nav-logo-img" />
+      <span class="nav-tagline">Define. Deliver. Prove.</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').style.display = document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex'">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <span class="section-label">Growth in Motion</span>
+      <h1>Built for Nonprofits <span>Ready to Move</span></h1>
+      <p>Raise Fwd combines deep sector expertise in fundraising, strategy, governance, and executive leadership with practical frameworks that create accountability and momentum.</p>
+      <div class="hero-actions">
+        <a href="#services" class="btn-primary">Explore Services</a>
+        <a href="#contact" class="btn-secondary">Schedule a Conversation</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="photo-hero.jpg" alt="Raise Fwd hero photo" class="photo-hero" />
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-img">
+        <div class="about-icon-card">
+          <img src="photo-about.jpg" alt="About Raise Fwd" class="photo-about" />
+        </div>
+      </div>
+      <div class="about-text">
+        <span class="section-label">Who We Are</span>
+        <h2 class="section-title">Define. Deliver. Prove.</h2>
+        <p>Raise Fwd is a consulting firm for nonprofits, mission-driven organizations, and corporate CSR verticals ready to operate at their full potential.</p>
+        <p>We build the frameworks and optimize operations. You own the results. Every engagement leaves your organization more capable, not more dependent — with the systems and strategies to turn mission into measurable impact.</p>
+        <ul class="value-list">
+          <li>Deep sector expertise across strategy, governance, executive leadership, and fundraising</li>
+          <li>Practical frameworks built for accountability and real momentum</li>
+          <li>A philanthropic lens — we understand donor psychology and what moves people to give</li>
+          <li>Flexible models — project, fractional, or interim — sized to your needs and budget</li>
+        </ul>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <span class="section-label">What We Do</span>
+    <h2 class="section-title">Consulting Services</h2>
+    <p class="section-sub">We offer a focused range of services designed to strengthen the core of your nonprofit — from strategy to sustainability.</p>
+
+    <div class="services-grid">
+
+      <!-- Strategic Planning -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+        </div>
+        <h3>Strategic Planning</h3>
+        <p>Facilitate board and staff alignment around a clear theory of change and actionable multi-year strategy. We guide your organization through environmental scanning, priority-setting, and the development of a roadmap that connects mission to measurable outcomes.</p>
+        <span class="service-tag">Planning &amp; Vision</span>
+        <span class="service-tag">Communications Plan</span>
+      </div>
+
+      <!-- Fundraising Operations & Tech Stack -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        </div>
+        <h3>Fundraising Operations &amp; Tech Stack</h3>
+        <p>Build the infrastructure your development vertical needs to sustain and grow — and make sure your technology supports it. We assess systems, processes, and team capacity, and identify the most efficient and cost-effective CRM and tech solutions to optimize how your organization attracts, cultivates, and retains donors at every level.</p>
+        <span class="service-tag">Revenue &amp; Sustainability</span>
+        <span class="service-tag">Technology &amp; Systems</span>
+      </div>
+
+      <!-- Development Planning -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <h3>Development Planning</h3>
+        <p>Create a comprehensive, multi-channel development plan that diversifies your revenue base. From annual funds and major gifts to grants and planned giving, we design strategies that are ambitious, realistic, and rooted in your unique donor community.</p>
+        <span class="service-tag">Growth Strategy</span>
+      </div>
+
+      <!-- Development Coaching -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14z"/></svg>
+        </div>
+        <h3>Development Coaching</h3>
+        <p>Provide personalized coaching for development and leadership professionals seeking to sharpen their skills and advance their impact. We offer one-on-one guidance, goal-setting, and real-time support to help fundraisers and leaders navigate challenges and grow with confidence.</p>
+        <span class="service-tag">Coaching &amp; Growth</span>
+      </div>
+
+      <!-- Board Development -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Board Development</h3>
+        <p>Strengthen governance, deepen board engagement, and align your board&#x2019;s capacity with your organization&#x2019;s strategic direction. We work with executive directors and board chairs to build cultures of accountability, effective meeting structures, and boards that lead with confidence.</p>
+        <span class="service-tag">Governance &amp; Leadership</span>
+      </div>
+
+      <!-- Fractional Support -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>Fractional &amp; Interim Support</h3>
+        <p>Access seasoned C-suite leadership exactly when you need it. We provide fractional CEO, COO, and Chief Fundraising Officer support on an ongoing basis, as well as interim executive leadership during transitions and vacancies — giving your organization senior capacity without the full-time cost.</p>
+        <span class="service-tag">Fractional CEO / COO / CFO</span>
+        <span class="service-tag">Interim Leadership</span>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CTA BANNER -->
+  <section id="cta" style="position:relative;overflow:hidden;">
+    <img src="photo-cta.jpg" alt="" class="photo-cta-bg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.18;z-index:0;" />
+    <h2>Turn strategy into infrastructure — so fundraising fuels real impact for the communities you serve</h2>
+    <p>Let's talk about where your organization is — and build the framework that gets you moving.</p>
+    <a href="#contact" class="btn-primary">Connect with Raise Fwd</a>
+  </section>
+
+  <!-- RECOMMENDATIONS -->
+  <section id="recommendations">
+    <span class="section-label">What People Say</span>
+    <h2 class="section-title">Recommendations</h2>
+    <p class="recommendations-intro">From funders, board members, and colleagues who have worked alongside Amanda across the sector.</p>
+
+    <div class="rec-grid">
+
+      <div class="rec-card">
+        <p class="rec-quote">Ms. Amanda "Proth" Prothero defines top of one's game in Philanthropy. A quick scan of her accomplishments will tell you she's got CHOPS. What you cannot glean is that her skills center building deep relationships that pay dividends far beyond her role. She is a distinguished partner for donors and donor organizations because she consistently displays her ability to simultaneously forefront both her organization's and donor organizations' goals. She is a unique human who quietly rises to challenges and inspires you to rise with her. She is smart, diligent, committed, dauntless, unflappable and great to have on any and every team. Do not miss every opportunity to work with Proth.</p>
+        <button class="rec-read-more" onclick="toggleRec(this)">Read more</button>
+        <span class="rec-author">Lucia Hicks Williams</span>
+      </div>
+
+      <div class="rec-card">
+        <p class="rec-quote">Amanda is an exceptional leader who blends strategic vision with a data-driven, tech-enabled approach to fundraising. She sees the full system — people, technology, and mission — and aligns them with clarity and precision.</p>
+        <span class="rec-author">Kai Two Feathers Orton</span>
+      </div>
+
+      <div class="rec-card">
+        <p class="rec-quote">I've had the privilege of collaborating with Amanda Prothero as a funder, and I can say without hesitation that she is one of the most impactful nonprofit leaders I've encountered. Amanda brings a rare ability to design and scale fundraising strategies that not only deliver results but also advance meaningful outcomes. What sets Amanda apart is her ability to bridge the big picture with practical execution. She blends strategic vision with deep operational expertise, and leads with clarity, care, and integrity — always ensuring that fundraising strategies are mission-driven and people-centered. Any organization or donor fortunate enough to work with her will gain not only a brilliant strategist but also a trusted partner committed to lasting impact.</p>
+        <button class="rec-read-more" onclick="toggleRec(this)">Read more</button>
+        <span class="rec-author">Michael Streffery</span>
+      </div>
+
+      <div class="rec-card">
+        <p class="rec-quote">Amanda is a dynamic nonprofit executive and fundraiser. She brings a deep, authentic connection to her work that translates into transformative outcomes. Her passion for mission-based organizations is evident in the results she consistently delivers, fueled by her commitment to equity and expanding opportunities through sustained fundraising and philanthropic efforts. What sets Amanda apart isn't just her talent but her character. She leads with unmatched sincerity, care, and integrity. Her love for people and the profession is not only visible, it's felt by everyone around her. As a board member of a Charlotte-based nonprofit, I've seen firsthand how she helped identify key funding opportunities, offered her network without hesitation, and thoughtfully assessed areas for financial growth. Her strategic insight enabled the organization to pursue and qualify for grants that were previously out of reach. Her involvement was a game-changer for our mission and sustainability. Working with Amanda in any capacity is a sure way to achieve results. It's been a pleasure and honor to know her.</p>
+        <button class="rec-read-more" onclick="toggleRec(this)">Read more</button>
+        <span class="rec-author">Megan Stevens</span>
+      </div>
+
+      <div class="rec-card placeholder">
+        <p class="rec-placeholder-text">Recommendation coming soon</p>
+        <span class="rec-author" style="color:#9CA3AF;">— Placeholder</span>
+      </div>
+
+      <div class="rec-card placeholder">
+        <p class="rec-placeholder-text">Recommendation coming soon</p>
+        <span class="rec-author" style="color:#9CA3AF;">— Placeholder</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <span class="section-label">Contact Us</span>
+        <h2 class="section-title">Let's Start a Conversation</h2>
+        <p>Every engagement begins with listening. Tell us about your organization — we'll respond within one business day.</p>
+
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <span style="color:#1A1A1A;">&nbsp;</span>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.38 2 2 0 0 1 3.6 1.2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.27a16 16 0 0 0 5.64 5.64l1.14-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.5 15z"/></svg>
+          </div>
+          <span style="color:#1A1A1A;">&nbsp;</span>
+        </div>
+
+      </div>
+
+      <div>
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" placeholder="Jane" required />
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" placeholder="Smith" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="jane@yourorg.org" required />
+          </div>
+
+          <div class="form-group">
+            <label for="org">Organization Name</label>
+            <input type="text" id="org" placeholder="Your Nonprofit Name" />
+          </div>
+
+          <div class="form-group">
+            <label for="service">Area of Interest</label>
+            <select id="service">
+              <option value="">Select a service area...</option>
+              <option>Strategic Planning</option>
+              <option>Fundraising Operations &amp; Tech Stack</option>
+              <option>Development Planning</option>
+              <option>Development Coaching</option>
+              <option>Board Development</option>
+              <option>Fractional CEO Support</option>
+              <option>Fractional COO Support</option>
+              <option>Fractional Fundraising Support</option>
+              <option>Interim Executive Support</option>
+              <option>Not sure yet — let's talk</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Tell us about your organization and needs</label>
+            <textarea id="message" placeholder="Share a little about where your organization is and what challenges you're facing..."></textarea>
+          </div>
+
+          <button type="submit" class="form-submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <img src="Raise Fwd Logo.png" alt="Raise Fwd" style="height:44px;width:auto;" />
+    <p>&copy; 2026 Raise Fwd. All rights reserved.</p>
+    <div style="display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;justify-content:center;">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+      <a href="https://www.linkedin.com/in/aprothero/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:0.4rem;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        Amanda Prothero
+      </a>
+      <a href="#" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:0.4rem;opacity:0.5;" title="Raise Fwd LinkedIn — coming soon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        Raise Fwd
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth active nav highlight on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.style.color = link.getAttribute('href') === '#' + entry.target.id
+              ? 'var(--green-dark)'
+              : '';
+          });
+        }
+      });
+    }, { threshold: 0.4 });
+
+    sections.forEach(s => observer.observe(s));
+
+    // Form handler
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.form-submit');
+      btn.textContent = 'Message Sent!';
+      btn.style.background = 'var(--green-dark)';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.textContent = 'Send Message';
+        btn.style.background = '';
+        btn.disabled = false;
+        e.target.reset();
+      }, 3000);
+    }
+    function toggleRec(btn) {
+      const quote = btn.previousElementSibling;
+      const expanded = quote.classList.toggle('expanded');
+      btn.textContent = expanded ? 'Read less' : 'Read more';
+    }
+  </script>
+
+</body>
+</html>
